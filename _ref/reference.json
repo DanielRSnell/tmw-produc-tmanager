@@ -1,0 +1,375 @@
+[
+    {
+        "key": "group_fba208f342564",
+        "title": "Product Specs",
+        "fields": [
+            {
+                "key": "field_6f35472d91204",
+                "label": "Category",
+                "name": "product_category",
+                "aria-label": "",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "product_category",
+                "field_type": "select",
+                "add_term": 1,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "id",
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_e7f4c5dceaa44",
+                "label": "Type",
+                "name": "type",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_c7f22d2eb6204",
+                "label": "Configuration",
+                "name": "configuration",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "new_lines": "",
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "rows": ""
+            },
+            {
+                "key": "field_e574fb45c7db4",
+                "label": "Detail",
+                "name": "detail",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "new_lines": "",
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "rows": ""
+            },
+            {
+                "key": "field_2029dcd32caf4",
+                "label": "Internal SKU",
+                "name": "internal_sku",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_8e1d0939a1054",
+                "label": "Keywords (raw text)",
+                "name": "keywords_raw",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_ab9e9702a17a4",
+                "label": "Vendor Name",
+                "name": "vendor_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_7bd86dc129ed4",
+                "label": "Vendor SKU",
+                "name": "vendor_sku",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6d41a2198a9b4",
+                "label": "Alternate Vendor Name",
+                "name": "alternate_vendor_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_a4d2bf5714e44",
+                "label": "Alternate Vendor SKU",
+                "name": "alternate_vendor_sku",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_18e9e76522024",
+                "label": "Launch Date",
+                "name": "launch_date",
+                "aria-label": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "Y-m-d",
+                "return_format": "Y-m-d",
+                "first_day": 1,
+                "default_to_current_date": 0
+            },
+            {
+                "key": "field_4d08defbbd684",
+                "label": "Product URL",
+                "name": "product_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_c98771f0c8294",
+                "label": "Product Owner",
+                "name": "product_owner",
+                "aria-label": "",
+                "type": "user",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "multiple": 0,
+                "role": [],
+                "allow_null": 0,
+                "return_format": "array",
+                "bidirectional_target": []
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "product"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Final Product fields aligned with import + new metadata.",
+        "show_in_rest": 1,
+        "display_title": ""
+    },
+    {
+        "key": "post_type_68fd4a2c9dec6",
+        "title": "Products",
+        "menu_order": 0,
+        "active": true,
+        "post_type": "product",
+        "advanced_configuration": false,
+        "import_source": "",
+        "import_date": "",
+        "labels": {
+            "name": "Products",
+            "singular_name": "Product",
+            "menu_name": "Product",
+            "all_items": "All Product",
+            "edit_item": "Edit Product",
+            "view_item": "View Product",
+            "view_items": "View Product",
+            "add_new_item": "Add New Product",
+            "add_new": "Add New Product",
+            "new_item": "New Product",
+            "parent_item_colon": "Parent Product:",
+            "search_items": "Search Product",
+            "not_found": "No product found",
+            "not_found_in_trash": "No product found in Trash",
+            "archives": "Product Archives",
+            "attributes": "Product Attributes",
+            "featured_image": "",
+            "set_featured_image": "",
+            "remove_featured_image": "",
+            "use_featured_image": "",
+            "insert_into_item": "Insert into product",
+            "uploaded_to_this_item": "Uploaded to this product",
+            "filter_items_list": "Filter product list",
+            "filter_by_date": "Filter product by date",
+            "items_list_navigation": "Product list navigation",
+            "items_list": "Product list",
+            "item_published": "Product published.",
+            "item_published_privately": "Product published privately.",
+            "item_reverted_to_draft": "Product reverted to draft.",
+            "item_scheduled": "Product scheduled.",
+            "item_updated": "Product updated.",
+            "item_link": "Product Link",
+            "item_link_description": "A link to a product."
+        },
+        "description": "",
+        "public": true,
+        "hierarchical": false,
+        "exclude_from_search": false,
+        "publicly_queryable": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "admin_menu_parent": "",
+        "show_in_admin_bar": true,
+        "show_in_nav_menus": true,
+        "show_in_rest": true,
+        "rest_base": "",
+        "rest_namespace": "wp\/v2",
+        "rest_controller_class": "WP_REST_Posts_Controller",
+        "menu_position": "",
+        "menu_icon": {
+            "type": "dashicons",
+            "value": "dashicons-admin-post"
+        },
+        "rename_capabilities": false,
+        "singular_capability_name": "post",
+        "plural_capability_name": "posts",
+        "supports": [
+            "title",
+            "editor",
+            "thumbnail",
+            "custom-fields"
+        ],
+        "taxonomies": "",
+        "has_archive": false,
+        "has_archive_slug": "",
+        "rewrite": {
+            "permalink_rewrite": "post_type_key",
+            "with_front": "1",
+            "feeds": "0",
+            "pages": "1"
+        },
+        "query_var": "post_type_key",
+        "query_var_name": "",
+        "can_export": true,
+        "delete_with_user": false,
+        "register_meta_box_cb": "",
+        "enter_title_here": ""
+    }
+]

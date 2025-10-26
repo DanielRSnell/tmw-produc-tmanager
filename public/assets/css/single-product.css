@@ -1,0 +1,110 @@
+/**
+ * Single Product View Styles
+ *
+ * Styles for the single product view (front-end).
+ *
+ * @package TMW_Product_Manager
+ * @since 2.0.0
+ */
+
+@view-transition {
+	navigation: auto;
+}
+
+#wpadminbar {
+	display: none !important;
+}
+
+html {
+	margin-top: 0 !important;
+}
+
+:root {
+	--global-palette9: #f8fafc;
+}
+
+.inner-wrap {
+	background: #f8fafc !important;
+}
+
+.tmw-single-product {
+	max-width: 80rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.tmw-single h1 {
+	margin-top: 0;
+}
+
+.tmw-specs {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 16px;
+	background: #fff;
+	border: 1px solid #e8e8e8;
+	border-radius: 12px;
+	padding: 20px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+}
+
+.tmw-specs th,
+.tmw-specs td {
+	padding: 10px;
+	border-bottom: 1px solid #f0f0f0;
+	text-align: left;
+	vertical-align: top;
+}
+
+.tmw-specs th {
+	width: 220px;
+	color: #555;
+	background: #fafafa;
+}
+
+.tmw-actions {
+	margin-bottom: 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+.tmw-btn {
+	padding: 8px 12px;
+	border-radius: 6px;
+	text-decoration: none;
+	display: inline-block;
+	transition: all 0.2s ease;
+}
+
+.tmw-btn-primary {
+	background: #1e73be;
+	color: #fff;
+}
+
+.tmw-btn-primary:hover {
+	background: #155a8a;
+}
+
+.tmw-btn-back {
+	background: #f0f0f0;
+	color: #333;
+	font-size: 14px;
+}
+
+.tmw-btn-back:hover {
+	background: #e0e0e0;
+}
+
+.tmw-btn-edit {
+	background: #1e73be;
+	color: #fff;
+	font-size: 14px;
+}
+
+.tmw-btn-edit:hover {
+	background: #155a8a;
+}

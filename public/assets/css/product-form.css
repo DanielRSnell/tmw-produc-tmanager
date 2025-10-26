@@ -1,0 +1,164 @@
+/**
+ * Product Form Styles
+ *
+ * Styles for the [tmw_product_form] ACF front-end form shortcode.
+ *
+ * @package TMW_Product_Manager
+ * @since 2.0.0
+ */
+
+@view-transition {
+	navigation: auto;
+}
+
+#wpadminbar {
+	display: none !important;
+}
+
+html {
+	margin-top: 0 !important;
+}
+
+:root {
+	--global-palette9: #f8fafc;
+}
+
+.inner-wrap {
+	background: #f8fafc !important;
+}
+
+.tmw-single-product {
+	max-width: 80rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.tmw-acf-form .acf-form {
+	background: #fff;
+	border: 1px solid #e8e8e8;
+	border-radius: 12px;
+	padding: 20px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+}
+
+.tmw-acf-form .acf-fields {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+/* Default full-width */
+.tmw-acf-form .acf-field {
+	flex: 1 1 100%;
+	margin: 0;
+}
+
+/* Row 1: SKU + Launch + Owner */
+.tmw-acf-form .acf-field[data-name="internal_sku"],
+.tmw-acf-form .acf-field[data-name="launch_date"],
+.tmw-acf-form .acf-field[data-name="product_owner"] {
+	order: 1;
+	flex: 1 1 calc(33.33% - 12px);
+}
+
+/* Row 2: Category + Type + Configuration (three across) */
+.tmw-acf-form .acf-field[data-name="product_category"],
+.tmw-acf-form .acf-field[data-name="type"],
+.tmw-acf-form .acf-field[data-name="configuration"] {
+	order: 2;
+	flex: 1 1 calc(33.33% - 12px);
+}
+
+/* Keep Configuration compact if it's a textarea */
+.tmw-acf-form .acf-field[data-name="configuration"] textarea {
+	min-height: 34px;
+	height: 34px;
+	resize: vertical;
+}
+
+/* Row 3: Detail full-width + short height */
+.tmw-acf-form .acf-field[data-name="detail"] {
+	order: 3;
+	flex-basis: 100%;
+}
+
+.tmw-acf-form .acf-field[data-name="detail"] textarea {
+	min-height: 48px;
+}
+
+/* Row 4: Vendor + Vendor SKU split */
+.tmw-acf-form .acf-field[data-name="vendor_name"],
+.tmw-acf-form .acf-field[data-name="vendor_sku"] {
+	order: 4;
+	flex: 1 1 calc(50% - 12px);
+}
+
+/* Row 5: Alt Vendor + Alt Vendor SKU split */
+.tmw-acf-form .acf-field[data-name="alternate_vendor_name"],
+.tmw-acf-form .acf-field[data-name="alternate_vendor_sku"] {
+	order: 5;
+	flex: 1 1 calc(50% - 12px);
+}
+
+/* Row 6: Keywords + Product URL split */
+.tmw-acf-form .acf-field[data-name="keywords_raw"],
+.tmw-acf-form .acf-field[data-name="product_url"] {
+	order: 6;
+	flex: 1 1 calc(50% - 12px);
+}
+
+/* Inputs/labels tighter */
+.tmw-acf-form .acf-label label {
+	font-size: 12px;
+	color: #555;
+	margin-bottom: 4px;
+}
+
+.tmw-acf-form .acf-input input,
+.tmw-acf-form .acf-input select {
+	height: 34px;
+	padding: 6px;
+}
+
+.tmw-acf-form .acf-input textarea {
+	min-height: 80px;
+}
+
+/* Action buttons styling */
+.tmw-actions {
+	margin-bottom: 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+.tmw-btn {
+	padding: 8px 12px;
+	border-radius: 6px;
+	text-decoration: none;
+	display: inline-block;
+	transition: all 0.2s ease;
+}
+
+.tmw-btn-back {
+	background: #f0f0f0;
+	color: #333;
+	font-size: 14px;
+}
+
+.tmw-btn-back:hover {
+	background: #e0e0e0;
+}
+
+.tmw-btn-edit {
+	background: #1e73be;
+	color: #fff;
+	font-size: 14px;
+}
+
+.tmw-btn-edit:hover {
+	background: #155a8a;
+}
