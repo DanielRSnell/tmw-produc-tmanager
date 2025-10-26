@@ -64,7 +64,7 @@ class TMW_Config {
 	/**
 	 * Plugin Version
 	 */
-	const VERSION = '2.0.0';
+	const VERSION = '2.0.8';
 
 	/**
 	 * Get the product form URL (filterable)

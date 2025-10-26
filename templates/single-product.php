@@ -34,29 +34,245 @@ while ( have_posts() ) :
 	the_post();
 	$id = get_the_ID();
 
-	// Enqueue assets
-	$plugin_url = plugin_dir_url( dirname( __FILE__ ) );
-	$version = TMW_Config::VERSION;
-
-	if ( $is_edit_mode ) {
-		// Enqueue form styles for edit mode
-		wp_enqueue_style(
-			'tmw-product-form',
-			$plugin_url . 'public/assets/css/product-form.css',
-			array(),
-			$version
-		);
-	} else {
-		// Enqueue single product styles for view mode
-		wp_enqueue_style(
-			'tmw-single-product',
-			$plugin_url . 'public/assets/css/single-product.css',
-			array(),
-			$version
-		);
-	}
-
 	?>
+
+	<?php if ( $is_edit_mode ) : ?>
+		<style>
+		@view-transition {
+			navigation: auto;
+		}
+
+		:root {
+			--global-palette9: #f8fafc;
+		}
+
+		.inner-wrap {
+			background: #f8fafc !important;
+		}
+
+		.tmw-single-product {
+			max-width: 80rem;
+			margin-left: auto;
+			margin-right: auto;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+
+		.tmw-acf-form .acf-form {
+			background: #fff;
+			border: 1px solid #e8e8e8;
+			border-radius: 12px;
+			padding: 20px;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+		}
+
+		.tmw-acf-form .acf-fields {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+		}
+
+		.tmw-acf-form .acf-field {
+			flex: 1 1 100%;
+			margin: 0;
+		}
+
+		.tmw-acf-form .acf-field[data-name="internal_sku"],
+		.tmw-acf-form .acf-field[data-name="launch_date"],
+		.tmw-acf-form .acf-field[data-name="product_owner"] {
+			order: 1;
+			flex: 1 1 calc(33.33% - 12px);
+		}
+
+		.tmw-acf-form .acf-field[data-name="product_category"],
+		.tmw-acf-form .acf-field[data-name="type"],
+		.tmw-acf-form .acf-field[data-name="configuration"] {
+			order: 2;
+			flex: 1 1 calc(33.33% - 12px);
+		}
+
+		.tmw-acf-form .acf-field[data-name="configuration"] textarea {
+			min-height: 34px;
+			height: 34px;
+			resize: vertical;
+		}
+
+		.tmw-acf-form .acf-field[data-name="detail"] {
+			order: 3;
+			flex-basis: 100%;
+		}
+
+		.tmw-acf-form .acf-field[data-name="detail"] textarea {
+			min-height: 48px;
+		}
+
+		.tmw-acf-form .acf-field[data-name="vendor_name"],
+		.tmw-acf-form .acf-field[data-name="vendor_sku"] {
+			order: 4;
+			flex: 1 1 calc(50% - 12px);
+		}
+
+		.tmw-acf-form .acf-field[data-name="alternate_vendor_name"],
+		.tmw-acf-form .acf-field[data-name="alternate_vendor_sku"] {
+			order: 5;
+			flex: 1 1 calc(50% - 12px);
+		}
+
+		.tmw-acf-form .acf-field[data-name="keywords_raw"],
+		.tmw-acf-form .acf-field[data-name="product_url"] {
+			order: 6;
+			flex: 1 1 calc(50% - 12px);
+		}
+
+		.tmw-acf-form .acf-label label {
+			font-size: 12px;
+			color: #555;
+			margin-bottom: 4px;
+		}
+
+		.tmw-acf-form .acf-input input,
+		.tmw-acf-form .acf-input select {
+			height: 34px;
+			padding: 6px;
+		}
+
+		.tmw-acf-form .acf-input textarea {
+			min-height: 80px;
+		}
+
+		.tmw-actions {
+			margin-bottom: 24px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.tmw-btn {
+			padding: 8px 12px;
+			border-radius: 6px;
+			text-decoration: none;
+			display: inline-block;
+			transition: all 0.2s ease;
+		}
+
+		.tmw-btn-back {
+			background: #f0f0f0;
+			color: #333;
+			font-size: 14px;
+		}
+
+		.tmw-btn-back:hover {
+			background: #e0e0e0;
+		}
+
+		.tmw-btn-edit {
+			background: #1e73be;
+			color: #fff;
+			font-size: 14px;
+		}
+
+		.tmw-btn-edit:hover {
+			background: #155a8a;
+		}
+		</style>
+	<?php else : ?>
+		<style>
+		@view-transition {
+			navigation: auto;
+		}
+
+		:root {
+			--global-palette9: #f8fafc;
+		}
+
+		.inner-wrap {
+			background: #f8fafc !important;
+		}
+
+		.tmw-single-product {
+			max-width: 80rem;
+			margin-left: auto;
+			margin-right: auto;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+
+		.tmw-single h1 {
+			margin-top: 0;
+		}
+
+		.tmw-specs {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 16px;
+			background: #fff;
+			border: 1px solid #e8e8e8;
+			border-radius: 12px;
+			padding: 20px;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+		}
+
+		.tmw-specs th,
+		.tmw-specs td {
+			padding: 10px;
+			border-bottom: 1px solid #f0f0f0;
+			text-align: left;
+			vertical-align: top;
+		}
+
+		.tmw-specs th {
+			width: 220px;
+			color: #555;
+			background: #fafafa;
+		}
+
+		.tmw-actions {
+			margin-bottom: 24px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.tmw-btn {
+			padding: 8px 12px;
+			border-radius: 6px;
+			text-decoration: none;
+			display: inline-block;
+			transition: all 0.2s ease;
+		}
+
+		.tmw-btn-primary {
+			background: #1e73be;
+			color: #fff;
+		}
+
+		.tmw-btn-primary:hover {
+			background: #155a8a;
+		}
+
+		.tmw-btn-back {
+			background: #f0f0f0;
+			color: #333;
+			font-size: 14px;
+		}
+
+		.tmw-btn-back:hover {
+			background: #e0e0e0;
+		}
+
+		.tmw-btn-edit {
+			background: #1e73be;
+			color: #fff;
+			font-size: 14px;
+		}
+
+		.tmw-btn-edit:hover {
+			background: #155a8a;
+		}
+		</style>
+	<?php endif; ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'tmw-single-product' ); ?>>
 
@@ -159,30 +375,25 @@ while ( have_posts() ) :
 							),
 						);
 
-						// Render each field
+						// Render each field (show all fields, even if empty)
 						foreach ( $fields as $field ) {
 							$value = TMW_Product_Fields::get_formatted_field( $id, $field['key'] );
-
-							if ( ! empty( $value ) && $value !== '—' ) :
-								?>
-								<tr>
-									<th><?php echo esc_html( $field['label'] ); ?></th>
-									<td><?php echo wp_kses_post( $value ); ?></td>
-								</tr>
-								<?php
-							endif;
-						}
-
-						// Categories
-						$categories = TMW_Product_Fields::get_categories( $id );
-						if ( $categories !== '—' ) :
 							?>
 							<tr>
-								<th>Categories</th>
-								<td><?php echo wp_kses_post( $categories ); ?></td>
+								<th><?php echo esc_html( $field['label'] ); ?></th>
+								<td><?php echo wp_kses_post( $value ); ?></td>
 							</tr>
 							<?php
-						endif;
+						}
+
+						// Categories (always show)
+						$categories = TMW_Product_Fields::get_categories( $id );
+						?>
+						<tr>
+							<th>Categories</th>
+							<td><?php echo wp_kses_post( $categories ); ?></td>
+						</tr>
+						<?php
 						?>
 					</tbody>
 				</table>

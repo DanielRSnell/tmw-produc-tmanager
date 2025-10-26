@@ -1,0 +1,24 @@
+# Zip files
+*.zip
+
+# Build directory
+dist/
+
+# Reference directory
+_ref/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Environment files
+.env

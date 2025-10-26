@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TMW Products Manager
  * Description: Products admin enhancements + front-end searchable list with infinite scroll + ACF form for add/edit + custom single Product view.
- * Version: 2.0.0
+ * Version: 2.0.8
  * Author: Texas Metal Works
  * License: GPL2+
  * Text Domain: tmw

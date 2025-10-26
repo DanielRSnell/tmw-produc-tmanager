@@ -21,6 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 class TMW_Product_Ajax {
 
 	/**
+	 * Current search query
+	 *
+	 * @var string
+	 */
+	private $current_search_query = '';
+
+	/**
 	 * Initialize the class and set up hooks
 	 */
 	public function init() {
@@ -52,12 +59,17 @@ class TMW_Product_Ajax {
 			'post_status'    => 'publish',
 			'posts_per_page' => $per_page,
 			'paged'          => $paged,
-			's'              => $qtxt,
 		);
 
-		// Add meta query for search across all fields
+		// Add search query (custom implementation to search both title and meta fields)
 		if ( $qtxt ) {
-			$args['meta_query'] = TMW_Product_Fields::build_search_meta_query( $qtxt );
+			// Store search term for custom filter
+			add_filter( 'posts_search', array( $this, 'custom_search_filter' ), 10, 2 );
+			add_filter( 'posts_join', array( $this, 'custom_search_join' ), 10, 2 );
+			add_filter( 'posts_groupby', array( $this, 'custom_search_groupby' ), 10, 2 );
+
+			// Store the search query as a class property for the filter
+			$this->current_search_query = $qtxt;
 		}
 
 		// Add category filter if provided (accept both slug and ID)
@@ -74,6 +86,15 @@ class TMW_Product_Ajax {
 
 		// Execute query
 		$q = new WP_Query( $args );
+
+		// Remove search filters after query
+		if ( $qtxt ) {
+			remove_filter( 'posts_search', array( $this, 'custom_search_filter' ), 10 );
+			remove_filter( 'posts_join', array( $this, 'custom_search_join' ), 10 );
+			remove_filter( 'posts_groupby', array( $this, 'custom_search_groupby' ), 10 );
+			$this->current_search_query = '';
+		}
+
 		$rows = '';
 
 		if ( $q->have_posts() ) {
@@ -91,6 +112,83 @@ class TMW_Product_Ajax {
 				'has_more' => ( $q->max_num_pages > $paged ),
 			)
 		);
+	}
+
+	/**
+	 * Custom search filter to search both post title and meta fields
+	 *
+	 * @param string   $search Search SQL.
+	 * @param WP_Query $query Query object.
+	 * @return string Modified search SQL
+	 */
+	public function custom_search_filter( $search, $query ) {
+		global $wpdb;
+
+		if ( empty( $this->current_search_query ) ) {
+			return $search;
+		}
+
+		$search_term = $wpdb->esc_like( $this->current_search_query );
+		$search_term = '%' . $search_term . '%';
+
+		// Get searchable meta fields
+		$fields = TMW_Config::get_searchable_fields();
+
+		// Build meta field search conditions
+		$meta_conditions = array();
+		foreach ( $fields as $field ) {
+			$meta_conditions[] = $wpdb->prepare( "(pm.meta_key = %s AND pm.meta_value LIKE %s)", $field, $search_term );
+		}
+		$meta_sql = implode( ' OR ', $meta_conditions );
+
+		// Build search that includes title OR meta fields
+		$search = $wpdb->prepare(
+			" AND (({$wpdb->posts}.post_title LIKE %s) OR ({$meta_sql}))",
+			$search_term
+		);
+
+		return $search;
+	}
+
+	/**
+	 * Join postmeta table for custom search
+	 *
+	 * @param string   $join Join SQL.
+	 * @param WP_Query $query Query object.
+	 * @return string Modified join SQL
+	 */
+	public function custom_search_join( $join, $query ) {
+		global $wpdb;
+
+		if ( empty( $this->current_search_query ) ) {
+			return $join;
+		}
+
+		$join .= " LEFT JOIN {$wpdb->postmeta} AS pm ON ({$wpdb->posts}.ID = pm.post_id)";
+
+		return $join;
+	}
+
+	/**
+	 * Group by post ID to prevent duplicate results
+	 *
+	 * @param string   $groupby Group by SQL.
+	 * @param WP_Query $query Query object.
+	 * @return string Modified group by SQL
+	 */
+	public function custom_search_groupby( $groupby, $query ) {
+		global $wpdb;
+
+		if ( empty( $this->current_search_query ) ) {
+			return $groupby;
+		}
+
+		if ( ! empty( $groupby ) ) {
+			$groupby .= ', ';
+		}
+		$groupby .= "{$wpdb->posts}.ID";
+
+		return $groupby;
 	}
 
 	/**

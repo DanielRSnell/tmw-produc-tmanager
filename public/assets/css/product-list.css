@@ -15,14 +15,6 @@ html {
 	scroll-behavior: smooth;
 }
 
-#wpadminbar {
-	display: none !important;
-}
-
-html {
-	margin-top: 0 !important;
-}
-
 .tmw-wrapper {
 	width: 100%;
 	max-width: 80rem;
